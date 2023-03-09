@@ -1,0 +1,55 @@
+header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 70px;
+    text-align: center;
+    background-color: gray;
+}
+
+body > * {
+    border: 1px solid darkgray;
+    /*max-width: 100%;*/
+    /*max-height: 100%;*/
+}
+
+nav {
+    height: 100%;
+    width: 120px;
+    background-color: lightgray;
+    position: fixed;
+    /*margin-top: 70px;*/
+    /*z-index: 1;*/
+    /*overflow: auto;*/
+}
+
+section {
+    margin-top: 70px;
+    margin-left: 130px;
+    min-width: 120px;
+    overflow: scroll;
+    position: fixed;
+    /*height: auto;*/
+    /*max-height: max(100vw, 0);*/
+    /*float:right;*/
+    /*height: 90vw;*/
+    /*width:250px;*/
+    /*padding:3px;*/
+    /*background:#f00;*/
+    /*object-fit: fill;*/
+    /*height: 100%;*/
+}
+
+.full-height {
+    height: 100%;
+    background: yellow;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/*body::-webkit-scrollbar{*/
+/*    display: none;*/
+/*}*/
