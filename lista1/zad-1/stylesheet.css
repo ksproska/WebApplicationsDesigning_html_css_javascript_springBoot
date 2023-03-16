@@ -4,7 +4,6 @@ body {
     margin-left: max((100vw - 1024px)/2, 3em);
     margin-right: max((100vw - 1024px)/2, 3em);
     margin-bottom: 2em;
-    border: 1px solid darkgray;
     background: lightgray;
     box-sizing: border-box;
 }
