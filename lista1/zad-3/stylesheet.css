@@ -1,4 +1,4 @@
-.common-button {
+button {
     width: 15em;
     font-size: 1em;
     margin: 5px;
@@ -8,7 +8,7 @@
 
 }
 
-.common-button:hover {
+button:hover {
     color: #209fc9;
     cursor: pointer;
 }

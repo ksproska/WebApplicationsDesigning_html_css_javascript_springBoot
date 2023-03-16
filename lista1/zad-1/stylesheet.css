@@ -1,11 +1,10 @@
 body {
-    font-family: Sans-Serif;
+    font-family: Sans-Serif, serif;
     max-width: 1024px;
     margin-left: max((100vw - 1024px)/2, 3em);
     margin-right: max((100vw - 1024px)/2, 3em);
     margin-bottom: 2em;
     background: lightgray;
-    box-sizing: border-box;
 }
 
 p {
@@ -14,13 +13,17 @@ p {
     padding: 1em;
 }
 
-body > * {
-    background-color: white;
-}
-
-section {
+section, article {
     padding-left: 1em;
     padding-right: 1em;
     margin-bottom: 1em;
     border: 1px solid darkgray;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body > * {
+    background-color: white;
 }

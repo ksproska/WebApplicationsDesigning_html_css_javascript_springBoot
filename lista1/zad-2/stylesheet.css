@@ -14,14 +14,13 @@ nav {
     position: fixed;
 }
 
-section {
+p {
     top: 75px;
     left: 125px;
     max-height: 100%;
     position: fixed;
     min-width: 240px;
-    overflow: scroll;
-    object-fit: fill;
+    overflow: auto;
 }
 
 .full-height {
