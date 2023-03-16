@@ -20,6 +20,16 @@ section, article {
     border: 1px solid darkgray;
 }
 
+article {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+}
+
 * {
     box-sizing: border-box;
 }
