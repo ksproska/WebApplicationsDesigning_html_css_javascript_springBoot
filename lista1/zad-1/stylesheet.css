@@ -11,6 +11,8 @@ p {
     text-indent: 1em;
     background: lightgray;
     padding: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
 section, article {
