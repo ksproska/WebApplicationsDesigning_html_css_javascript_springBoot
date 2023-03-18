@@ -1,0 +1,16 @@
+#viewport {
+    padding-left: 250px;
+}
+
+#sidebar {
+    position: fixed;
+    left: 250px;
+    width: 250px;
+    margin-left: -250px;
+    padding-left: 10px;
+}
+
+.circled {
+    list-style-type: circle;
+}
+
