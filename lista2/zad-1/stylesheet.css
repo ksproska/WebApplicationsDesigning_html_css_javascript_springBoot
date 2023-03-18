@@ -1,0 +1,12 @@
+#circle {
+    width: 10px;
+    height: 10px;
+    /*-webkit-border-radius: 25px;*/
+    /*-moz-border-radius: 25px;*/
+    border-radius: 5px;
+
+    line-height: 10px;
+    background: lightblue;
+    border: 1px solid #4cb1d2;
+    text-align: center;
+}
