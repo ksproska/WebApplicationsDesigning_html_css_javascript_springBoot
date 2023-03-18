@@ -1,5 +1,5 @@
 body {
-    font-family: Sans-Serif, serif;
+    font-family: sans-serif;
     max-width: 1024px;
     margin-left: max((100vw - 1024px)/2, 3em);
     margin-right: max((100vw - 1024px)/2, 3em);
