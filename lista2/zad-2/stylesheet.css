@@ -1,0 +1,15 @@
+form, table {
+    padding: 20px;
+}
+
+.right {
+    text-align: right;
+}
+
+.firs-col {
+    width: 50%;
+}
+
+.normal-col {
+    text-align: center;
+}
