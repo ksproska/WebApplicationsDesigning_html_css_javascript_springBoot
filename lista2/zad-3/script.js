@@ -27,49 +27,62 @@ function setCurrentIndex(index) {
     localStorage.setItem(key, index.toString());
 }
 
-function saveNote() {
+function makeNote(index) {
+    return {
+        index: index,
+        load: function () {
+            let key = "note-name-" + index;
+            document.getElementById("name").value = localStorage.getItem(key);
+            key = "note-content-" + index;
+            document.getElementById("content").innerText = localStorage.getItem(key);
+            setCurrentIndex(index)
+        },
+        save: function () {
+            let key = "note-name-" + index;
+            localStorage.setItem(key, document.getElementById("name").value);
+            key = "note-content-" + index;
+            localStorage.setItem(key, document.getElementById("content").value);
+            if (index >= getNoteCount()) {
+                increaseNoteCount()
+            }
+        },
+        getName: function () {
+            let key = "note-name-" + index;
+            return document.getElementById("name").value = localStorage.getItem(key);
+        }
+    };
+}
+
+function saveCurrent() {
     let index = getCurrentIndex();
     if (index === -1) {
-        index = getNoteCount() + 1;
+        index = getNoteCount();
     }
-    console.log(`saving at: ${index}`)
-    let key = "note-name-" + index;
-    localStorage.setItem(key, document.getElementById("name").value);
-    key = "note-content-" + index;+
-    localStorage.setItem(key, document.getElementById("content").value);
-    if (index >= getNoteCount()) {
-        increaseNoteCount()
-    }
-    addItemsToList();
-    document.getElementById("name").value = "";
+    let note = makeNote(index);
+    note.save();
+    setItemsInList();
+    document.getElementById("form").reset();
     document.getElementById("content").innerText = "";
     setCurrentIndex(-1);
 }
 
 function loadNote(index) {
-    console.log(`index: ${index}`)
-    let key = "note-name-" + index;
-    document.getElementById("name").value = localStorage.getItem(key);
-    key = "note-content-" + index;
-    document.getElementById("content").innerText = localStorage.getItem(key);
-    setCurrentIndex(index)
+    let note = makeNote(index);
+    note.load();
 }
 
-function getNoteName(index) {
-    let key = "note-name-" + index;
-    return document.getElementById("name").value = localStorage.getItem(key);
-}
-
-function addItemsToList() {
+function setItemsInList() {
     let list = document.getElementById("list");
     list.innerHTML = "";
     let count = getNoteCount();
-    console.log(`count: ${count}`);
     for (let i = 0; i < count; i++) {
-        let name = getNoteName(i);
-        list.innerHTML += `<li><a href=\"javascript:loadNote(${i})\">${name}</a></li>`
+        let note = makeNote(i);
+        list.innerHTML += `<li><a href=\"javascript:loadNote(${i})\">${note.getName()}</a></li>`
     }
 }
 
-addItemsToList()
-setCurrentIndex(-1)
+window.onload = (event) => {
+    setItemsInList()
+    document.getElementById("form").reset();
+    setCurrentIndex(-1)
+}
