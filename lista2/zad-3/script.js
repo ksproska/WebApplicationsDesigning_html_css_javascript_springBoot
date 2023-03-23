@@ -1,6 +1,8 @@
+const noteCountKey = "note-count";
+const noteCurrentKey = "note-current";
+
 function getNoteCount() {
-    let key = "note-count";
-    let count = parseInt(localStorage.getItem(key));
+    let count = parseInt(localStorage.getItem(noteCountKey));
     if (isNaN(count)) {
         count = 0;
     }
@@ -9,13 +11,11 @@ function getNoteCount() {
 
 function increaseNoteCount() {
     let count = getNoteCount() + 1;
-    let key = "note-count";
-    localStorage.setItem(key, count.toString());
+    localStorage.setItem(noteCountKey, count.toString());
 }
 
 function getCurrentIndex() {
-    let key = "note-current";
-    let index = parseInt(localStorage.getItem(key));
+    let index = parseInt(localStorage.getItem(noteCurrentKey));
     if (isNaN(index)) {
         index = -1;
     }
@@ -23,31 +23,32 @@ function getCurrentIndex() {
 }
 
 function setCurrentIndex(index) {
-    let key = "note-current";
-    localStorage.setItem(key, index.toString());
+    localStorage.setItem(noteCurrentKey, index.toString());
 }
 
 function makeNote(index) {
+    const noteNameKey = "note-name-";
+    const noteContentKey = "note-content-";
     return {
         index: index,
         load: function () {
-            let key = "note-name-" + index;
+            let key = noteNameKey + index;
             document.getElementById("name").value = localStorage.getItem(key);
-            key = "note-content-" + index;
+            key = noteContentKey + index;
             document.getElementById("content").innerText = localStorage.getItem(key);
             setCurrentIndex(index)
         },
         save: function () {
-            let key = "note-name-" + index;
+            let key = noteNameKey + index;
             localStorage.setItem(key, document.getElementById("name").value);
-            key = "note-content-" + index;
+            key = noteContentKey + index;
             localStorage.setItem(key, document.getElementById("content").value);
             if (index >= getNoteCount()) {
                 increaseNoteCount()
             }
         },
         getName: function () {
-            let key = "note-name-" + index;
+            let key = noteNameKey + index;
             return document.getElementById("name").value = localStorage.getItem(key);
         }
     };
