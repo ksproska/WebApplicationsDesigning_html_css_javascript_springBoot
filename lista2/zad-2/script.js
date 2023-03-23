@@ -1,11 +1,6 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
     'use strict'
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-
-    // Loop over them and prevent submission
+    const forms = document.querySelectorAll('.needs-validation');
     Array.prototype.slice.call(forms)
         .forEach(function (form) {
             form.addEventListener('submit', function (event) {
@@ -23,21 +18,30 @@ function addRow() {
     const tbodyRef = document.getElementById('myTable')
         .getElementsByTagName('tbody')[0];
     const row = tbodyRef.insertRow();
-    const cell1 = row.insertCell(0);
-    const cell2 = row.insertCell(1);
-    const cell3 = row.insertCell(2);
-    const cell4 = row.insertCell(3);
 
-    cell1.innerHTML = document.getElementById("name").value;
-    cell2.innerHTML = document.getElementById("width").value;
-    cell3.innerHTML = document.getElementById("height").value;
-    cell4.innerHTML = document.getElementById("depth").value;
+    const cellName = row.insertCell(0);
+    const cellWidth = row.insertCell(1);
+    const cellHeight = row.insertCell(2);
+    const cellDepth = row.insertCell(3);
+    const cellVolume = row.insertCell(4);
+    const cellSum = document.getElementById("sum");
 
-    cell2.classList.add("right")
-    cell3.classList.add("right")
-    cell4.classList.add("right")
+    cellWidth.classList.add("right")
+    cellHeight.classList.add("right")
+    cellDepth.classList.add("right")
+    cellVolume.classList.add("right")
 
-    document.getElementById("sum").innerText =
-        parseFloat(document.getElementById("sum").innerText) +
-        parseFloat(document.getElementById("depth").value);
+    let name = document.getElementById("name").value;
+    let width = document.getElementById("width").value;
+    let height = document.getElementById("height").value;
+    let depth = document.getElementById("depth").value;
+    let volume = (parseFloat(width) * parseFloat(height) * parseFloat(depth));
+    let sum = parseFloat(cellSum.innerText) + volume;
+
+    cellName.innerHTML = name;
+    cellWidth.innerHTML = width;
+    cellHeight.innerHTML = height;
+    cellDepth.innerHTML = depth;
+    cellVolume.innerHTML = volume.toFixed(2);
+    cellSum.innerText = sum.toFixed(2);
 }

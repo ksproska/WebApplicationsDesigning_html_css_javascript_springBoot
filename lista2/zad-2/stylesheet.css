@@ -2,6 +2,11 @@ form, table {
     padding: 20px;
 }
 
+article {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
 .right {
     text-align: right;
 }
