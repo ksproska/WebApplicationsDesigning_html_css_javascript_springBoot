@@ -1,25 +1,27 @@
 package com.orderservice.orderservice.controllers;
 
-import com.orderservice.orderservice.models.OrderItem;
-import com.orderservice.orderservice.services.OrderItemService;
+import com.orderservice.orderservice.models.Delivery;
+import com.orderservice.orderservice.models.Order;
+import com.orderservice.orderservice.services.DeliveryService;
+import com.orderservice.orderservice.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/items")
+@RequestMapping("/deliveries")
 @RestController
-public class OrderItemController {
+public class DeliveryController {
     @Autowired
-    OrderItemService service;
+    DeliveryService service;
 
     @GetMapping()
-    private List<OrderItem> getAll() {
+    private List<Delivery> getAll() {
         return service.getAll();
     }
 
     @GetMapping("/{id}")
-    private OrderItem get(@PathVariable("id") int id) {
+    private Delivery get(@PathVariable("id") int id) {
         return service.getById(id);
     }
 
@@ -29,7 +31,7 @@ public class OrderItemController {
     }
 
     @PostMapping()
-    private long save(@RequestBody OrderItem elem) {
+    private long save(@RequestBody Delivery elem) {
         service.saveOrUpdate(elem);
         return elem.getId();
     }

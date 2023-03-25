@@ -12,7 +12,7 @@
 	<artifactId>orderservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>orderservice</name>
-	<description>Demo project for Spring Boot</description>
+	<description>REST service for managing orders</description>
 	<properties>
 		<java.version>19</java.version>
 	</properties>

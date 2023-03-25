@@ -4,31 +4,6 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-//enum DeliveryStatus {
-//    delivered,
-//}
-//
-////@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-//@Entity
-//@Table
-//class Delivery {
-//    private @Id
-//    @GeneratedValue Long id;
-//    private String courierName;
-//    private DeliveryStatus status;
-//
-//
-//    public Delivery(Long id, String courierName, DeliveryStatus status) {
-//        this.id = id;
-//        this.courierName = courierName;
-//        this.status = status;
-//    }
-//
-//    public Delivery() {
-//
-//    }
-//}
-
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -42,17 +17,17 @@ public class Order {
     private List<OrderItem> orderItems;
 //    private Delivery delivery;
 
-    public Order(Long id, String consumerName) {
-        this.id = id;
-        this.consumerName = consumerName;
-//        this.orderItems = orderItems;
-//        this.delivery = delivery;
-    }
-
     public Order() {}
 
-    public Order(String consumerName) {
+    public Order(String consumerName, List<OrderItem> orderItems) {
         this.consumerName = consumerName;
+        this.orderItems = orderItems;
+    }
+
+    public Order(Long id, String consumerName, List<OrderItem> orderItems) {
+        this.id = id;
+        this.consumerName = consumerName;
+        this.orderItems = orderItems;
     }
 
     public Long getId() {

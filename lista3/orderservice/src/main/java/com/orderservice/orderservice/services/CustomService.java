@@ -1,4 +1,4 @@
-package com.orderservice.orderservice.resources;
+package com.orderservice.orderservice.services;
 
 import java.util.List;
 

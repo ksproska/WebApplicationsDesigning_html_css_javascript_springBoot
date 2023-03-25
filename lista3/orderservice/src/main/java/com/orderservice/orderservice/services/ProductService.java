@@ -1,6 +1,6 @@
-package com.orderservice.orderservice.resources;
+package com.orderservice.orderservice.services;
 
-import com.orderservice.orderservice.models.OrderItem;
+import com.orderservice.orderservice.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -8,25 +8,22 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-interface OrderItemRepository extends CrudRepository<OrderItem, Long> {}
-
 @Service
-public class OrderItemService implements CustomService<OrderItem> {
+public class ProductService implements CustomService<Product> {
     @Autowired
-    OrderItemRepository repository;
+    ProductRepository repository;
 
-
-    public List<OrderItem> getAll() {
-        List<OrderItem> elems = new ArrayList<>();
+    public List<Product> getAll() {
+        List<Product> elems = new ArrayList<>();
         repository.findAll().forEach(elems::add);
         return elems;
     }
 
-    public OrderItem getById(long id) {
+    public Product getById(long id) {
         return repository.findById(id).get();
     }
 
-    public void saveOrUpdate(OrderItem elem) {
+    public void saveOrUpdate(Product elem) {
         repository.save(elem);
     }
 

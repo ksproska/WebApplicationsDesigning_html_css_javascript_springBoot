@@ -27,6 +27,17 @@ public class OrderItem {
     public OrderItem() {
     }
 
+    public OrderItem(Long id, Product product, Integer quality) {
+        this.id = id;
+        this.product = product;
+        this.quality = quality;
+    }
+
+    public OrderItem(Product product, Integer quality) {
+        this.product = product;
+        this.quality = quality;
+    }
+
     public Long getId() {
         return id;
     }
