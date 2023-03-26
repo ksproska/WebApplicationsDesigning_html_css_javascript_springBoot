@@ -29,7 +29,7 @@ public class OrderController {
     }
 
     @PostMapping()
-    private long save(@RequestBody OrderHistory elem) {
+    public long save(@RequestBody OrderHistory elem) {
         service.saveOrUpdate(elem);
         return elem.getId();
     }

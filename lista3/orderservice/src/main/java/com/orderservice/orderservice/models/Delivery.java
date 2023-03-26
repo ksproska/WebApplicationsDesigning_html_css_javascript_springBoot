@@ -2,10 +2,6 @@ package com.orderservice.orderservice.models;
 
 import jakarta.persistence.*;
 
-enum DeliveryStatus {
-    Created, PickedUp, Delivered,
-}
-
 @Entity
 @Table
 public class Delivery {

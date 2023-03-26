@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-interface OrderRepository extends CrudRepository<Order, Long> {}
-
 @Service
 public class OrderService implements CustomService<Order> {
     @Autowired

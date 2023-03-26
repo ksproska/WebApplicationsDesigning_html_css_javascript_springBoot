@@ -1,8 +1,9 @@
 package com.orderservice.orderservice;
 
-import com.orderservice.orderservice.models.OrderItem;
-import com.orderservice.orderservice.models.Product;
+import com.orderservice.orderservice.models.*;
+import com.orderservice.orderservice.services.DeliveryRepository;
 import com.orderservice.orderservice.services.OrderItemRepository;
+import com.orderservice.orderservice.services.OrderRepository;
 import com.orderservice.orderservice.services.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +20,9 @@ public class DataLoader {
     @Autowired
     private OrderItemRepository orderItemRepository;
 
+    @Autowired
+    private DeliveryRepository deliveryRepository;
+
     @Bean
     void LoadData() {
         var book = new Product("book", new BigDecimal(14));
@@ -30,10 +34,17 @@ public class DataLoader {
                 add(new Product("doll", new BigDecimal(20)));
             }
         });
-        orderItemRepository.saveAll(new ArrayList<>() {
+        var items = new ArrayList<OrderItem>() {
             {
                 add(new OrderItem(book, 2));
                 add(new OrderItem(chair, 3));
+            }
+        };
+        orderItemRepository.saveAll(items);
+        var created = new Delivery("Kacper Listonosz", DeliveryStatus.Created);
+        deliveryRepository.saveAll(new ArrayList<>(){
+            {
+                add(created);
             }
         });
     }

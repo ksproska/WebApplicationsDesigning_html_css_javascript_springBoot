@@ -82,6 +82,12 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+			<groupId>junit</groupId>     <!-- NOT org.junit here -->
+			<artifactId>junit-dep</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.openapitools</groupId>
 			<artifactId>jackson-databind-nullable</artifactId>
 			<version>0.2.6</version>
@@ -106,7 +112,6 @@
 		<dependency>
 			<groupId>org.junit.vintage</groupId>
 			<artifactId>junit-vintage-engine</artifactId>
-			<scope>test</scope>
 			<exclusions>
 				<exclusion>
 					<groupId>org.hamcrest</groupId>
@@ -127,26 +132,6 @@
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
 				<version>4.3.1</version>
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<goals>-->
-<!--							<goal>generate</goal>-->
-<!--						</goals>-->
-<!--						<configuration>-->
-<!--							<inputSpec>-->
-<!--								${project.basedir}/src/main/resources/ordershistory.yml-->
-<!--							</inputSpec>-->
-<!--							<generatorName>spring</generatorName>-->
-<!--							<apiPackage>com.orderservice.api</apiPackage>-->
-<!--							<modelPackage>com.orderservice.model</modelPackage>-->
-<!--							<supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>-->
-<!--							<configOptions>-->
-<!--								<delegatePattern>true</delegatePattern>-->
-<!--							</configOptions>-->
-<!--						</configuration>-->
-<!--					</execution>-->
-<!--				</executions>-->
-
 				<executions>
 					<execution>
 						<goals>

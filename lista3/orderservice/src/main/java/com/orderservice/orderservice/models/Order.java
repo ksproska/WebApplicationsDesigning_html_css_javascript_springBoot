@@ -1,6 +1,7 @@
 package com.orderservice.orderservice.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
 
 import java.util.List;
 
@@ -15,26 +16,29 @@ public class Order {
     @Column(name = "items")
     @OneToMany
     private List<OrderItem> orderItems;
-//    private Delivery delivery;
+    @JoinColumn(name = "delivery")
+    @OneToOne(cascade = {CascadeType.ALL})
+    private Delivery delivery;
 
     public Order() {}
 
-    public Order(String consumerName, List<OrderItem> orderItems) {
-        this.consumerName = consumerName;
-        this.orderItems = orderItems;
-    }
-
-    public Order(Long id, String consumerName, List<OrderItem> orderItems) {
+    public Order(Long id, String consumerName, List<OrderItem> orderItems, Delivery delivery) {
         this.id = id;
         this.consumerName = consumerName;
         this.orderItems = orderItems;
+        this.delivery = delivery;
+    }
+
+    public Order(String consumerName, List<OrderItem> orderItems, Delivery delivery) {
+        this.consumerName = consumerName;
+        this.orderItems = orderItems;
+        this.delivery = delivery;
     }
 
     public Long getId() {
         return id;
     }
 
-//    @OneToMany
     public List<OrderItem> getOrderItems() {
         return orderItems;
     }
@@ -42,15 +46,6 @@ public class Order {
     public void setOrderItems(List<OrderItem> orderItems) {
         this.orderItems = orderItems;
     }
-//
-//    @ManyToOne
-//    public Delivery getDelivery() {
-//        return delivery;
-//    }
-//
-//    public void setDelivery(Delivery delivery) {
-//        this.delivery = delivery;
-//    }
 
     @Override
     public String toString() {
@@ -67,5 +62,13 @@ public class Order {
 
     public void setConsumerName(String consumerName) {
         this.consumerName = consumerName;
+    }
+
+    public Delivery getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
     }
 }
