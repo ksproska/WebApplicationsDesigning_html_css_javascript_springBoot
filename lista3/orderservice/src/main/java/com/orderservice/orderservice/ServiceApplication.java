@@ -8,10 +8,10 @@ import static org.springframework.data.repository.query.QueryLookupStrategy.Key.
 
 @SpringBootApplication
 @EnableJpaRepositories(queryLookupStrategy = CREATE_IF_NOT_FOUND)
-public class Application {
+public class ServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(ServiceApplication.class, args);
 	}
 
 }

@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 //@SpringBootTest
 @ExtendWith(MockitoExtension.class)
-class ApplicationTests {
+class HistoryApplicationTests {
 //	@Mock
 //	private OrderService service;
 //
