@@ -1,6 +1,7 @@
 package com.orderhistory.orderhistory.models;
 
 import jakarta.persistence.*;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.math.BigDecimal;
@@ -10,7 +11,7 @@ import java.math.BigDecimal;
 public class OrderHistory extends RepresentationModel<OrderHistory> {
     @Column(name = "order_id")
     private @Id
-    @GeneratedValue Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
     @Column(name = "consumer_name")
     private String consumerName;
     @Column(name = "courier_name")
