@@ -1,0 +1,91 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8081
+    description: Generated server url
+paths:
+  /ordershistory:
+    get:
+      tags:
+        - order-controller
+      operationId: getAll
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderHistory'
+    post:
+      tags:
+        - order-controller
+      operationId: save
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderHistory'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int64
+  /ordershistory/{id}:
+    get:
+      tags:
+        - order-controller
+      operationId: get
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrderHistory'
+    delete:
+      tags:
+        - order-controller
+      operationId: delete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    OrderHistory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        consumerName:
+          type: string
+        courierName:
+          type: string
+        deliveryStatus:
+          type: string
+        productNames:
+          type: string
+        totalPrice:
+          type: number
