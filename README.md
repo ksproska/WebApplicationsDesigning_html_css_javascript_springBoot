@@ -8,7 +8,9 @@
   ![implementation](readme_imgs/packages_list.gif)
   - zadanie 3 \
   ![implementation](readme_imgs/notes.gif)
-- [Lista 3](lista3)
+- [Lista 3](lista3) \
+  ![implementation](readme_imgs/swagger_order_service.gif) \
+  ![implementation](readme_imgs/swagger_orderHistory_service.gif)
 
 ## Treści zadań - PIISW, W-4, IO, 2021/2022, semestr letni
 
@@ -132,7 +134,7 @@ Umożliwia on oddzielenie części logiki odpowiedzialnej za utrzymanie danych (
 Serwis związany z odczytem może wówczas stosować inny sposób przechowywania danych (joiny nie są efektywne), 
 aniżeli relacyjny, który z kolei dobrze odgrywa swoją rolę przy serwisie transakcyjnym (tutaj od utrzymania danych).
 
-![Diagram przedstawiający koncepcję Command Query Responsible Segregation](readme_imgs/img_7.png) \
+![Diagram przedstawiający koncepcję Command Query Responsible Segregation](readme_imgs/img_7.png)
 
 1. (6 pkt) `Order` Service
 
