@@ -19,7 +19,7 @@ który spełnia następujące warunki: \
     
     Elementy HTML muszą być użyte zgodnie z ich semantyką.
     
-    ![img.png](img.png)
+    ![Przykładowa konstrukcja dokumentu dla zadania 1.](readme_imgs/img.png)
 
 2. (7 pkt) Utwórz dokument HTML 5 wraz z arkuszem styli, który składa się ze znajdującego
    się zawsze na górze strony elementu tytułowego, ze spisu treści znajdującego się po lewej
@@ -36,7 +36,7 @@ który spełnia następujące warunki: \
    (f) minimalna szerokość okna przeglądarki powinna wynosić `240px` (poniżej tej wartości
    powinien pojawić się pasek przewijania poziomego okna przeglądarki).
 
-    ![img_1.png](img_1.png)
+    ![Wymagany układ strony dla zadania 2.](readme_imgs/img_1.png)
 
 3. (6 pkt) Utwórz dokument zawierający panel trzech przycisków: `Go back`, `Save`, `Delete`
    (elementy typu button). Każdy przycisk powinien składać się z odpowiedniej ikony
@@ -56,7 +56,7 @@ który spełnia następujące warunki: \
    obramowanie; \
    (f) przycisk wybrany np. poprzez klawisz `TAB` powinien być zaznaczony cieniem.
     
-    ![img_2.png](img_2.png)
+    ![Wymagany układ strony dla zadania 3.](readme_imgs/img_2.png)
 
 ## Lista zadań nr 2: JavaScript
 
@@ -71,7 +71,7 @@ który spełnia następujące warunki: \
     Przykład wyglądu strony dla dwóch wybranych pozycji suwaka przedstawiono na rysunku. \
     Podpowiedź: koło można wyświetlić korzystając z odpowiednio ostylowanego elementu `div`.
 
-    ![img_3.png](img_3.png)
+    ![Dwie fazy działania kodu z zadania 1.](readme_imgs/img_3.png)
 
 2. (6 pkt) Formularze i walidacja. \
    W celu realizacji tego zadania użyj biblioteki styli Bootstrap:https://getbootstrap.com/. 
@@ -99,8 +99,8 @@ który spełnia następujące warunki: \
    Wskazówka: pakiet Bootstrap posiada wsparcie dla walidacji (patrz rysunek) - pod
    warunkiem wykorzystywania możliwości, jakie daje `HTML5` w tym zakresie.
 
-   ![img_4.png](img_4.png)
-   ![img_5.png](img_5.png)
+   ![Przykład działania aplikacji z zadania 2.](readme_imgs/img_4.png)
+   ![Przykład działania walidacji formularza z zadania 2.](readme_imgs/img_5.png)
 
 3. (7 pkt) Notatnik i składowanie danych Napisz prostą aplikację notatnika (widoczną na
    rysunku). Aplikacja powinna posiadać następujące funkcje: \
@@ -131,7 +131,7 @@ który spełnia następujące warunki: \
     Nie wolno używać dodatkowych bibliotek takich jak jQuery, Angular, React, itp. Wolno
     natomiast użyć Bootstrapa do stylowania widoku aplikacji.
 
-    ![img_6.png](img_6.png)
+    ![Aplikacja notatnika z zadania 3.](readme_imgs/img_6.png)
 
 
 ## Lista zadań nr 3: Tworzenie i testowanie backendu: serwisy RESTowe
@@ -144,8 +144,7 @@ związany z odczytem może wówczas stosować inny sposób przechowywania danych
 są efektywne), aniżeli relacyjny, który z kolei dobrze odgrywa swoją rolę przy serwisie transak-
 cyjnym (tutaj od utrzymania danych).
 
-![img_7.png](img_7.png) \
-Diagram przedstawiający koncepcję Command Query Responsible Segregation
+![Diagram przedstawiający koncepcję Command Query Responsible Segregation](readme_imgs/img_7.png) \
 
 1. (6 pkt) `Order` Service \
    Utwórz aplikację Order, która spełni następujące kryteria: \
@@ -163,7 +162,7 @@ Diagram przedstawiający koncepcję Command Query Responsible Segregation
    (i) ma odpowiednie pakiety wewnątrz warstwy: REST API, serwisową, dostępu do bazy
    danych.
 
-    ![img_8.png](img_8.png)
+    ![Model danych dla zadania 1.](readme_imgs/img_8.png)
 
 2. (5 pkt) `OrderHistory` Service. \
    Utwórz aplikację OrderHistory, która spełni następujące kryteria: \
@@ -174,7 +173,7 @@ Diagram przedstawiający koncepcję Command Query Responsible Segregation
    (e) encjaOrderHistorypowinna zawierać informacje o kliencie, dostawie oraz zamówionych 
    produktach (nazwy po przecinku w jednym polu) wraz z sumaryczną wartością
    zamówienia (patrz rysunek), \
-   ![img_10.png](img_10.png) \
+   ![Model danych dla zadania 2.](readme_imgs/img_10.png) \
    (f) ma oddzielone pakiety: REST API, serwisową, dostępu do bazy danych, \
    (g) wystawi REST API do tworzenia obiektu typuOrderHistory, aktualizacji jego statusu 
    dostawy oraz odczytu danych tego typu (GET - na podstawie id oraz wszystkich
@@ -182,8 +181,8 @@ Diagram przedstawiający koncepcję Command Query Responsible Segregation
    (h) definicja REST będzie możliwa do wyświetlenia za pomocą host:port/swagger-ui/index.html, \
    (i) strona swagger-ui/index.html grupuje operacje (metody do odczytu oddzielnie od
    tych do tworzenia, patrz rysunki), \
-   ![img_11.png](img_11.png) \
-   ![img_12.png](img_12.png) \
+   ![Przykładowy widok grupy ordershistory na swagger-ui dla zadania 2.](readme_imgs/img_11.png) \
+   ![Przykładowy widok grupy sync na swagger-ui dla zadania 2.](readme_imgs/img_12.png) \
    (j) logika zawarta w serwisie jest pokryta testami jednostkowymi (JUnit,Mockito).
 
 3. (3 pkt) Synchronizacja danych pomiędzy Order Service a OrderHistory Service. \
@@ -205,3 +204,5 @@ Diagram przedstawiający koncepcję Command Query Responsible Segregation
    wraz z możliwością pagingu.
 
    **Wskazówka:** Skorzystaj ze Spring HATEOAS.
+
+![Przykładowa zawartość pliku Open API do generowania kodu dla zadania 3.](readme_imgs/img_13.png)
