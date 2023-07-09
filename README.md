@@ -131,130 +131,77 @@ który spełnia następujące warunki: \
     Nie wolno używać dodatkowych bibliotek takich jak jQuery, Angular, React, itp. Wolno
     natomiast użyć Bootstrapa do stylowania widoku aplikacji.
 
-[//]: # ()
-[//]: # (## Lista zadań nr 3: Tworzenie i testowanie backendu: serwisy RESTowe)
+    ![img_6.png](img_6.png)
 
-[//]: # ()
-[//]: # (1. &#40;6 pkt&#41; Order Service)
 
-[//]: # (   Utwórz aplikację Order, która spełni następujące kryteria:)
+## Lista zadań nr 3: Tworzenie i testowanie backendu: serwisy RESTowe
 
-[//]: # (   &#40;a&#41; będzie oparta naSpring Boot&#40;https://start.spring.io&#41;,)
+### Wprowadzenie
+W bardzo popularnej dziś architekturze mikroserwisowej, jednym ze stosowanych wzorców jest
+Command Query Responsible Segregation (CQRS). Umożliwia on oddzielenie części logiki od-
+powiedzialnej za utrzymanie danych (Create, Update, Delete) od ich odczytu (Read). Serwis
+związany z odczytem może wówczas stosować inny sposób przechowywania danych (joiny nie
+są efektywne), aniżeli relacyjny, który z kolei dobrze odgrywa swoją rolę przy serwisie transak-
+cyjnym (tutaj od utrzymania danych).
 
-[//]: # (   &#40;b&#41; zbudowana za pomocąMaven,)
+![img_7.png](img_7.png) \
+Diagram przedstawiający koncepcję Command Query Responsible Segregation
 
-[//]: # (   &#40;c&#41; wykorzysta bazę danychH2,)
+1. (6 pkt) `Order` Service \
+   Utwórz aplikację Order, która spełni następujące kryteria: \
+   (a) będzie oparta na [Spring Boot](https://start.spring.io), \
+   (b) zbudowana za pomocą `Maven`, \
+   (c) wykorzysta bazę danych `H2`, \
+   (d) dane z bazy danych będą dostępne pod adresem host:port/h2-console, \
+   (e) wystawi REST API do tworzenia obiektu typu Order, \
+   (f) wystawi REST API do aktualizacji statusu dostawy (Created, PickedUp, Delivered)
+   dla danego Order, \
+   (g) definicja REST będzie możliwa do wyświetlenia z poziomu przeglądarki za pomocą
+   host:port/swagger-ui/index.html, \
+   (h) encjaOrderpowinna zawierać informacje o kliencie, zamówionych produktach oraz
+   dostawie (patrz rysunek), \
+   (i) ma odpowiednie pakiety wewnątrz warstwy: REST API, serwisową, dostępu do bazy
+   danych.
 
-[//]: # (   &#40;d&#41; dane z bazy danych będą dostępne pod adresem host:port/h2-console,)
+    ![img_8.png](img_8.png)
 
-[//]: # (   &#40;e&#41; wystawi REST API do tworzenia obiektu typu Order,)
+2. (5 pkt) `OrderHistory` Service. \
+   Utwórz aplikację OrderHistory, która spełni następujące kryteria: \
+   (a) będzie oparta naSpring Boot(https://start.spring.io), \
+   (b) zbudowana za pomocąMaven, \
+   (c) wykorzysta bazę danychH2, \
+   (d) dane z bazy danych będą dostępne pod adresem host:port/h2-console, \
+   (e) encjaOrderHistorypowinna zawierać informacje o kliencie, dostawie oraz zamówionych 
+   produktach (nazwy po przecinku w jednym polu) wraz z sumaryczną wartością
+   zamówienia (patrz rysunek), \
+   ![img_10.png](img_10.png) \
+   (f) ma oddzielone pakiety: REST API, serwisową, dostępu do bazy danych, \
+   (g) wystawi REST API do tworzenia obiektu typuOrderHistory, aktualizacji jego statusu 
+   dostawy oraz odczytu danych tego typu (GET - na podstawie id oraz wszystkich
+   zapisanych), \
+   (h) definicja REST będzie możliwa do wyświetlenia za pomocą host:port/swagger-ui/index.html, \
+   (i) strona swagger-ui/index.html grupuje operacje (metody do odczytu oddzielnie od
+   tych do tworzenia, patrz rysunki), \
+   ![img_11.png](img_11.png) \
+   ![img_12.png](img_12.png) \
+   (j) logika zawarta w serwisie jest pokryta testami jednostkowymi (JUnit,Mockito).
 
-[//]: # (   &#40;f&#41; wystawi REST API do aktualizacji statusu dostawy &#40;Created, PickedUp, Delivered&#41;)
+3. (3 pkt) Synchronizacja danych pomiędzy Order Service a OrderHistory Service. \
+   Zarówno po utworzeniu obiektu typu Order jak i zmianie statusu jego dostawy przez
+   Order Service, dane w OrderHistory Service powinny zostać wzbogacone o te zmiany
+   (synchronizacja). Do tego celu użyj REST API udostępnionego przez OrderHistory Service.
 
-[//]: # (   dla danego Order,)
+4. (4 pkt) Open API. \
+   Aplikacja OrderHistory Service powinna udostępniać plik Open API (.json lub .yaml),
+   który posłuży Order Service do wygenerowania kodu potrzebnego do połączenia poprzez
+   REST API z OrderHistory Service.
 
-[//]: # (   &#40;g&#41; definicja REST będzie możliwa do wyświetlenia z poziomu przeglądarki za pomocą)
+   **Wskazówka:** Zacznij od wygenerowania pliku z definicją Open API (https://springdoc.org/). 
+   Następnie odpowiednio skorzystaj z mavenowego pluginu:openapi-generator-maven-plugin. 
+   Wygenerowany kod powinien znaleść się w katalogu target.
 
-[//]: # (   host:port/swagger-ui/index.html,)
+5. (2 pkt) RESTful API i paginacja. \
+   Rozszerz działanie REST API w OrderHistory Service o metodę wyszukującą zamówienia
+   wraz z możliwością pagingu.
 
-[//]: # (   &#40;h&#41; encjaOrderpowinna zawierać informacje o kliencie, zamówionych produktach oraz)
-
-[//]: # (   dostawie &#40;patrz rysunek 2.&#41;,)
-
-[//]: # (   &#40;i&#41; ma odpowiednie pakiety wewnątrz warstwy: REST API, serwisową, dostępu do bazy)
-
-[//]: # (   danych.)
-
-[//]: # (2. &#40;5 pkt&#41; OrderHistory Service.)
-
-[//]: # (   Utwórz aplikację OrderHistory, która spełni następujące kryteria:)
-
-[//]: # (   &#40;a&#41; będzie oparta naSpring Boot&#40;https://start.spring.io&#41;,)
-
-[//]: # (   &#40;b&#41; zbudowana za pomocąMaven,)
-
-[//]: # (   &#40;c&#41; wykorzysta bazę danychH2,)
-
-[//]: # (   &#40;d&#41; dane z bazy danych będą dostępne pod adresem host:port/h2-console,)
-
-[//]: # (   &#40;e&#41; encjaOrderHistorypowinna zawierać informacje o kliencie, dostawie oraz zamówio-)
-
-[//]: # (   nych produktach &#40;nazwy po przecinku w jednym polu&#41; wraz z sumaryczną wartością)
-
-[//]: # (   zamówienia &#40;patrz rysunek 3.&#41;,)
-
-[//]: # (   &#40;f&#41; ma oddzielone pakiety: REST API, serwisową, dostępu do bazy danych,)
-
-[//]: # (   &#40;g&#41; wystawi REST API do tworzenia obiektu typuOrderHistory, aktualizacji jego sta-)
-
-[//]: # (   tusu dostawy oraz odczytu danych tego typu &#40;GET - na podstawie id oraz wszystkich)
-
-[//]: # (   zapisanych&#41;,)
-
-[//]: # (   &#40;h&#41; definicja REST będzie możliwa do wyświetlenia za pomocą host:port/swagger-ui/index.html,)
-
-[//]: # (   &#40;i&#41; strona swagger-ui/index.html grupuje operacje &#40;metody do odczytu oddzielnie od)
-
-[//]: # (   tych do tworzenia, patrz 4 oraz 5&#41;,)
-
-[//]: # (   &#40;j&#41; logika zawarta w serwisie jest pokryta testami jednostkowymi &#40;JUnit,Mockito&#41;.)
-
-[//]: # ()
-[//]: # ()
-[//]: # (3. &#40;3 pkt&#41; Synchronizacja danych pomiędzy Order Service a OrderHistory Service.)
-
-[//]: # (   Zarówno po utworzeniu obiektu typu Order jak i zmianie statusu jego dostawy przez)
-
-[//]: # (   Order Service, dane w OrderHistory Service powinny zostać wzbogacone o te zmiany)
-
-[//]: # (   &#40;synchronizacja&#41;. Do tego celu użyj REST API udostępnionego przez OrderHistory Se-)
-
-[//]: # (   rvice.)
-
-[//]: # (4. &#40;4 pkt&#41; Open API.)
-
-[//]: # (   Aplikacja OrderHistory Service powinna udostępniać plik Open API &#40;.json lub .yaml&#41;,)
-
-[//]: # (   który posłuży Order Service do wygenerowania kodu potrzebnego do połączenia poprzez)
-
-[//]: # (   REST API z OrderHistory Service.)
-
-[//]: # (   **Wskazówka:** Zacznij od wygenerowania pliku z definicją Open API &#40;https://springdoc.)
-
-[//]: # (   org/&#41;. Następnie odpowiednio skorzystaj z mavenowego pluginu:openapi-generator-ma-)
-
-[//]: # (   ven-plugin. Wygenerowany kod powinien znaleść się w katalogu target.)
-
-[//]: # (5. A&#40;2 pkt&#41; RESTful API i paginacja.)
-
-[//]: # (   Rozszerz działanie REST API w OrderHistory Service o metodę wyszukującą zamówienia)
-
-[//]: # (   wraz z możliwością pagingu.)
-
-[//]: # (   **Wskazówka:** Skorzystaj ze Spring HATEOAS.)
-
-[//]: # ()
-[//]: # ()
-[//]: # (Rysunek 2: Model danych dla zadania 1.)
-
-[//]: # ()
-[//]: # (Rysunek 3: Model danych dla zadania 2.)
-
-[//]: # ()
-[//]: # ()
-[//]: # (```)
-
-[//]: # (Rysunek 4: Przykładowy widok grupy ordershistory na swagger-ui dla zadania 2.)
-
-[//]: # (```)
-
-[//]: # (```)
-
-[//]: # (Rysunek 5: Przykładowy widok grupy sync na swagger-ui dla zadania 2.)
-
-[//]: # (```)
-
-[//]: # (Rysunek 6: Przykładowa zawartość pliku Open API do generowania kodu dla zadania 3.)
-
-[//]: # ()
-[//]: # ()
+   **Wskazówka:** Skorzystaj ze Spring HATEOAS.
