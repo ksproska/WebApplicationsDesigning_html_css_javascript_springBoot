@@ -1,6 +1,14 @@
-# PIISW, W-4, IO, 2021/2022, semestr letni
+# Projekt i implementacja systemów webowych
+## Rozwiązania zadań
+- [Lista 1](lista1)
+- [Lista 2](lista2)
+  - zad 1 \
+  ![implementation](readme_imgs/circle.gif)
+- [Lista 3](lista3)
 
-## Lista zadań nr 1: HTML i CSS
+## Treści zadań - PIISW, W-4, IO, 2021/2022, semestr letni
+
+### Lista zadań nr 1: HTML i CSS
 
 1. (5 pkt) Utwórz dokument `HTML 5` wraz z arkuszem styli zawierającym wszystkie z następujących elementów semantycznych: 
    `article`, `section`, `p`, `h1`, `h2`, `h3` (wypełnij paragrafy treścią, np. lorem ipsum), który spełnia następujące warunki: \
@@ -48,7 +56,7 @@
     
     ![Wymagany układ strony dla zadania 3.](readme_imgs/img_2.png)
 
-## Lista zadań nr 2: JavaScript
+### Lista zadań nr 2: JavaScript
 
 1. (5 pkt) Obsługa zdarzeń modelu DOM.
 
@@ -112,9 +120,9 @@
     ![Aplikacja notatnika z zadania 3.](readme_imgs/img_6.png)
 
 
-## Lista zadań nr 3: Tworzenie i testowanie backendu: serwisy RESTowe
+### Lista zadań nr 3: Tworzenie i testowanie backendu: serwisy RESTowe
 
-### Wprowadzenie
+#### Wprowadzenie
 W bardzo popularnej dziś architekturze mikroserwisowej, jednym ze stosowanych wzorców jest _Command Query Responsible Segregation_ (_CQRS_). 
 Umożliwia on oddzielenie części logiki odpowiedzialnej za utrzymanie danych (`Create`, `Update`, `Delete`) od ich odczytu (`Read`). 
 Serwis związany z odczytem może wówczas stosować inny sposób przechowywania danych (joiny nie są efektywne), 
