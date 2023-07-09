@@ -2,8 +2,12 @@
 ## Rozwiązania zadań
 - [Lista 1](lista1)
 - [Lista 2](lista2)
-  - zad 1 \
+  - zadanie 1 \
   ![implementation](readme_imgs/circle.gif)
+  - zadanie 2 \
+  ![implementation](readme_imgs/packages_list.gif)
+  - zadanie 3 \
+  ![implementation](readme_imgs/notes.gif)
 - [Lista 3](lista3)
 
 ## Treści zadań - PIISW, W-4, IO, 2021/2022, semestr letni
